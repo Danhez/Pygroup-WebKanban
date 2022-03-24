@@ -4,12 +4,13 @@ import this
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework import viewsets
 from .serializers import *
 from .models import *
 
 # Create your views here.
 # GET & POST views
-
+"""
 @api_view(['GET','POST'])
 def boards_list(request):
     if request.method == 'GET':
@@ -144,7 +145,7 @@ def users_detail(request, pk):
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
+"""
 
 
 
@@ -152,7 +153,7 @@ def users_detail(request, pk):
 
 
 #Cosas
-""" 
+
 class BoardView(viewsets.ModelViewSet):
     serializer_class = BoardSerializer
     queryset = Board.objects.all()
@@ -171,4 +172,3 @@ class ColumnView(viewsets.ModelViewSet):
 class UserView(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
-"""

@@ -6,14 +6,23 @@ class User(models.Model):
     email = models.EmailField()
     avatar = models.URLField()
 
+    def __str__(self):
+        return self.name
+
 
 class Board(models.Model):
     name = models.CharField("Name", max_length=25)
+
+    def __str__(self):
+        return self.name
 
 
 class Column(models.Model):
     name = models.CharField("Name", max_length=25)
     board = models.ForeignKey(Board, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
 
 class Task(models.Model):
@@ -29,4 +38,4 @@ class Task(models.Model):
     column = models.ForeignKey(Column, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.description
